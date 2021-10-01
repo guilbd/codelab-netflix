@@ -11,31 +11,31 @@ generator client {
 }
 
 model Filme {
-  id     Int     @id @default(autoincrement())
-  nome   String 
-  imagem String?
+  id              Int     @id @default(autoincrement())
+  nome            String
+  imagem          String?
   data_lancamento String
-  tempo_duracao String
+  tempo_duracao   String
 
-  genero Genero[]
+  genero        Genero[]
   participantes Participante[]
 }
 
 model Genero {
-  id     Int     @id @default(autoincrement())
-  nome String
-  filme Int
-  nomeFilme Filme @relation(fields: [filme], references: [id])
+  id    Int    @id @default(autoincrement())
+  nome  String
+  filme Int? //id do filme
+
+  nomeFilme Filme? @relation(fields: [filme], references: [id])
 }
 
 model Participante {
-  id     Int     @id @default(autoincrement())
-  nome String
-  imagem String?
+  id              Int     @id @default(autoincrement())
+  nome            String
+  imagem          String?
   data_nascimento String
-  ator Boolean
-  staff Boolean
+  ator_staff      String
 
-  filme Int
-  nomeFilme Filme @relation(fields: [filme], references:[id])
+  filme     Int?
+  nomeFilme Filme? @relation(fields: [filme], references: [id])
 }

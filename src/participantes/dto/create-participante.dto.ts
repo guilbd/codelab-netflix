@@ -1,4 +1,5 @@
 import { isNotEmpty, IsNotEmpty, IsOptional } from 'class-validator';
+import { Prisma } from '.prisma/client';
 
 export class CreateParticipanteDto {
   @IsNotEmpty()
@@ -9,6 +10,6 @@ export class CreateParticipanteDto {
 
   @IsNotEmpty()
   data_nascimento: string;
-  atos: boolean;
-  staff: boolean;
+  ator_staff: string;
+  filme: number;
 }

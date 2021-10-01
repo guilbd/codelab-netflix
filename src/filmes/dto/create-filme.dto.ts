@@ -10,5 +10,4 @@ export class CreateFilmeDto {
   @IsNotEmpty()
   data_lancamento: string;
   tempo_duracao: string;
-  
 }
