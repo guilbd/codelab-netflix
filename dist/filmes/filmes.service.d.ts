@@ -4,13 +4,6 @@ export declare class FilmesService {
     private prisma;
     constructor(prisma: PrismaService);
     filme(filmeWhereUniqueInput: Prisma.FilmeWhereUniqueInput): Promise<Filme | null>;
-    filmes(params: {
-        skip?: number;
-        take?: number;
-        cursor?: Prisma.FilmeWhereUniqueInput;
-        where?: Prisma.FilmeWhereInput;
-        orderBy?: Prisma.FilmeOrderByWithRelationInput;
-    }): Promise<Filme[]>;
     getAll(): Promise<Filme[]>;
     getByIdFilme(id: number): Promise<Filme & {
         genero: {

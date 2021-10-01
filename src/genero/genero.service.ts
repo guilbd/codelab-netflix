@@ -13,20 +13,24 @@ export class GeneroService {
     });
   }
 
+  //Function for get all genres
   async getAll(): Promise<Genero[]> {
     return this.prisma.genero.findMany();
   }
 
+  //Function for get a genre by id
   async getByIdGenero(id: number) {
     return this.prisma.genero.findUnique({
       where: { id },
     });
   }
 
+  //Function for create a genre
   async createGenero(data: Prisma.GeneroCreateInput): Promise<Genero> {
     return this.prisma.genero.create({ data });
   }
 
+  //Function for update a genre
   async updateGenero(id: number, data: CreateGeneroDto): Promise<Genero> {
     return this.prisma.genero.update({
       where: { id },
@@ -34,12 +38,14 @@ export class GeneroService {
     });
   }
 
+  //Function for delete a genre
   async deleteGenero(where: Prisma.GeneroWhereUniqueInput): Promise<Genero> {
     return this.prisma.genero.delete({
       where,
     });
   }
 
+  //Function for delete all genres in DB
   async deleteAll() {
     return this.prisma.genero.deleteMany({});
   }

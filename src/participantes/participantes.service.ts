@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Participante, Prisma } from '.prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateParticipanteDto } from './dto/create-participante.dto';
+import { UpdateParticipanteDto } from './dto/update-participante.dto';
 
 @Injectable()
 export class ParticipantesService {
@@ -15,40 +16,27 @@ export class ParticipantesService {
     });
   }
 
-  async participantes(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.ParticipanteWhereUniqueInput;
-    where?: Prisma.ParticipanteWhereInput;
-    orderBy?: Prisma.ParticipanteOrderByWithRelationInput;
-  }): Promise<Participante[]> {
-    const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.participante.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    });
-  }
-
+  //Function for get all participants
   async getAll(): Promise<Participante[]> {
     return this.prisma.participante.findMany();
   }
 
+  //Function for get a participant by id
   async getByIdParticipante(id: number) {
     return this.prisma.participante.findUnique({
       where: { id },
     });
   }
 
+  //Function for create a participant
   async createParticipante(data: CreateParticipanteDto): Promise<Participante> {
     return this.prisma.participante.create({ data });
   }
 
+  //Function for get all participants
   async updateParticipante(
     id: number,
-    data: CreateParticipanteDto,
+    data: UpdateParticipanteDto,
   ): Promise<Participante> {
     return this.prisma.participante.update({
       where: { id },
@@ -56,6 +44,7 @@ export class ParticipantesService {
     });
   }
 
+  //Function for delete a participant
   async deleteParticipante(
     where: Prisma.ParticipanteWhereUniqueInput,
   ): Promise<Participante> {
@@ -64,6 +53,7 @@ export class ParticipantesService {
     });
   }
 
+  //Function for delete all participants in DB
   async deleteAll() {
     return this.prisma.participante.deleteMany({});
   }

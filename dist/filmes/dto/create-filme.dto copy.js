@@ -30,4 +30,4 @@ __decorate([
     __metadata("design:type", String)
 ], CreateFilmeDto.prototype, "tempo_duracao", void 0);
 exports.CreateFilmeDto = CreateFilmeDto;
-//# sourceMappingURL=create-filme.dto.js.map
+//# sourceMappingURL=create-filme.dto%20copy.js.map

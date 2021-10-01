@@ -14,23 +14,7 @@ export class FilmesService {
     });
   }
 
-  async filmes(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.FilmeWhereUniqueInput;
-    where?: Prisma.FilmeWhereInput;
-    orderBy?: Prisma.FilmeOrderByWithRelationInput;
-  }): Promise<Filme[]> {
-    const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.filme.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    });
-  }
-
+  //Function for Get All movies
   async getAll(): Promise<Filme[]> {
     return this.prisma.filme.findMany({
       include: {
@@ -51,6 +35,7 @@ export class FilmesService {
     });
   }
 
+  //Function for get a movie by id
   async getByIdFilme(id: number) {
     return this.prisma.filme.findUnique({
       where: { id },
@@ -72,10 +57,12 @@ export class FilmesService {
     });
   }
 
+  //Function for create a movie
   async createFilme(data: Prisma.FilmeCreateInput): Promise<Filme> {
     return this.prisma.filme.create({ data });
   }
 
+  //Function for update a movie by id
   async updateFilme(id: number, data: Prisma.FilmeUpdateInput): Promise<Filme> {
     return this.prisma.filme.update({
       where: { id },
@@ -83,12 +70,14 @@ export class FilmesService {
     });
   }
 
+  //Function for delete a movie
   async deleteFilme(where: Prisma.FilmeWhereUniqueInput): Promise<Filme> {
     return this.prisma.filme.delete({
       where,
     });
   }
 
+  //Function for delete all movies in DB
   async deleteAll() {
     return this.prisma.filme.deleteMany({});
   }

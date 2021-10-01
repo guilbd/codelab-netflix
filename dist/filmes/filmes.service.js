@@ -21,16 +21,6 @@ let FilmesService = class FilmesService {
             where: filmeWhereUniqueInput,
         });
     }
-    async filmes(params) {
-        const { skip, take, cursor, where, orderBy } = params;
-        return this.prisma.filme.findMany({
-            skip,
-            take,
-            cursor,
-            where,
-            orderBy,
-        });
-    }
     async getAll() {
         return this.prisma.filme.findMany({
             include: {

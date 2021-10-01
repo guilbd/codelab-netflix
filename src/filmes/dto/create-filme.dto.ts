@@ -7,7 +7,9 @@ export class CreateFilmeDto {
   @IsOptional()
   imagem: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   data_lancamento: string;
+
+  @IsOptional()
   tempo_duracao: string;
 }

@@ -21,16 +21,6 @@ let ParticipantesService = class ParticipantesService {
             where: participanteWhereUniqueInput,
         });
     }
-    async participantes(params) {
-        const { skip, take, cursor, where, orderBy } = params;
-        return this.prisma.participante.findMany({
-            skip,
-            take,
-            cursor,
-            where,
-            orderBy,
-        });
-    }
     async getAll() {
         return this.prisma.participante.findMany();
     }
