@@ -46,9 +46,9 @@ Essa é a estrutura JSON para fazer o POST e o PUT:
 ```
 
 >URL PARTICIPANTES
-* Essa é a URL de teste padrão: http://localhost:3000/participantes
+* Essa é a URL de teste padrão: http://localhost:3000/participantes/list
 
-* Para buscar por ID, insira o ID na URL: http://localhost:3000/participantes/5
+* Para buscar por ID, insira o ID na URL: http://localhost:3000/participantes/list/5
 
 * Para Editar por ID, insira o ID na URL:  http://localhost:3000/participantes/update/5
 
@@ -75,9 +75,9 @@ Essa é a estrutura JSON para fazer o PATCH:
 >_Coloque somente o campo ou campos a serem alterados._
 
 >URL GÊNERO
-* Essa é a URL de teste padrão: http://localhost:3000/generos
+* Essa é a URL de teste padrão: http://localhost:3000/generos/list
 
-* Para buscar por ID, insira o ID na URL: http://localhost:3000/generos/5
+* Para buscar por ID, insira o ID na URL: http://localhost:3000/generos/list/5
 
 * Para Editar por ID, insira o ID na URL:  http://localhost:3000/generos/update/5
 
