@@ -2,72 +2,92 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Projeto realizado com NodeJs e Prisma
+## Banco de Dados utilizado: Mysql
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+>API criada para estudar conceitos de backend, utilizando a linguagem de programação Typescript, ORM Prisma e banco de dados Mysql. Nessa API foi criado um CRUD completo e relacionamento entre Filmes, Gêneros e Participantes.
 
-## Description
+# Executando o projeto
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+É necessário criar o arquivo .env com a url do seu banco, _utilize o arquivo .env.example_ para criar o seu. Esse é um exemplo de string de conexão com o banco de dados: 
+DATABASE_URL="mysql://"usuario":"senha"@localhost:"porta"/"nome_do_banco" - sem as aspas.
 
-## Installation
-
+Em seguida pode-se executar o projeto:
 ```bash
-$ npm install
+npm run start:dev
+```
+# Testando a API para
+
+Você pode utilizar as ferramentas:
+
+- Postman
+- Insomnia
+- Thunder Client (plugin VSCode)
+
+## Exemplos de URLs:
+
+>URL FILMES
+* Essa é a URL de teste padrão: http://localhost:3000/filmes
+
+* Para buscar por ID, insira o ID na URL: http://localhost:3000/filmes/5
+
+* Para Editar por ID, insira o ID na URL:  http://localhost:3000/filmes/update/5
+
+* Para Apagar por ID, insira o ID na URL:  http://localhost:3000/filmes/delete/5
+
+Essa é a estrutura JSON para fazer o POST e o PUT:
+```json
+{
+	"nome": "Top Gun",
+	"imagem": "teste-imagem",
+	"data_lancamento": "1986",
+	"tempo_duracao": "140"
+}
 ```
 
-## Running the app
+>URL PARTICIPANTES
+* Essa é a URL de teste padrão: http://localhost:3000/participantes
 
-```bash
-# development
-$ npm run start
+* Para buscar por ID, insira o ID na URL: http://localhost:3000/participantes/5
 
-# watch mode
-$ npm run start:dev
+* Para Editar por ID, insira o ID na URL:  http://localhost:3000/participantes/update/5
 
-# production mode
-$ npm run start:prod
+* Para Apagar por ID, insira o ID na URL:  http://localhost:3000/filmes/delete/5
+
+Essa é a estrutura JSON para fazer o POST:
+```json
+{
+	"nome": "Tom Cruise",
+	"imagem": "teste",
+	"data_nascimento": "10/10/1956",
+	"ator_staff": "ator",
+	"filme":1
+}
 ```
+>_Observe que deve ser colocado o ID do filme a ser relacionado com o participante._
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+Essa é a estrutura JSON para fazer o PATCH:
+```json
+{
+	"nome": "Thomas Cruise Mapother IV"
+}
 ```
+>_Coloque somente o campo ou campos a serem alterados._
 
-## Support
+>URL GÊNERO
+* Essa é a URL de teste padrão: http://localhost:3000/generos
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+* Para buscar por ID, insira o ID na URL: http://localhost:3000/generos/5
 
-## Stay in touch
+* Para Editar por ID, insira o ID na URL:  http://localhost:3000/generos/update/5
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+* Para Apagar por ID, insira o ID na URL:  http://localhost:3000/filmes/generos/5
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+Essa é a estrutura JSON para fazer o POST:
+```json
+{
+	"nome": "ação",
+	"filme": 1
+}
+```
+>_Observe que deve ser colocado o ID do filme a ser relacionado com o gênero._
