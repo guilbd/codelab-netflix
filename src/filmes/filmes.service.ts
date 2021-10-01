@@ -32,12 +32,43 @@ export class FilmesService {
   }
 
   async getAll(): Promise<Filme[]> {
-    return this.prisma.filme.findMany();
+    return this.prisma.filme.findMany({
+      include: {
+        participantes: {
+          select: {
+            nome: true,
+            imagem: true,
+            data_nascimento: true,
+            ator_staff: true,
+          },
+        },
+        genero: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
   }
 
   async getByIdFilme(id: number) {
     return this.prisma.filme.findUnique({
       where: { id },
+      include: {
+        participantes: {
+          select: {
+            nome: true,
+            imagem: true,
+            data_nascimento: true,
+            ator_staff: true,
+          },
+        },
+        genero: {
+          select: {
+            nome: true,
+          },
+        },
+      },
     });
   }
 

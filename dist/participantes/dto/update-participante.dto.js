@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateParticipanteDto = void 0;
+exports.UpdateParticipanteDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateParticipanteDto {
+class UpdateParticipanteDto {
 }
-__decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "nome", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "imagem", void 0);
+], UpdateParticipanteDto.prototype, "nome", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "data_nascimento", void 0);
+], UpdateParticipanteDto.prototype, "imagem", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateParticipanteDto.prototype, "ator_staff", void 0);
+], UpdateParticipanteDto.prototype, "data_nascimento", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], UpdateParticipanteDto.prototype, "ator_staff", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
-], CreateParticipanteDto.prototype, "filme", void 0);
-exports.CreateParticipanteDto = CreateParticipanteDto;
-//# sourceMappingURL=create-participante.dto.js.map
+], UpdateParticipanteDto.prototype, "filme", void 0);
+exports.UpdateParticipanteDto = UpdateParticipanteDto;
+//# sourceMappingURL=update-participante.dto.js.map

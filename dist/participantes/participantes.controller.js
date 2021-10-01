@@ -16,6 +16,7 @@ exports.ParticipantesController = void 0;
 const common_1 = require("@nestjs/common");
 const participantes_service_1 = require("./participantes.service");
 const create_participante_dto_1 = require("./dto/create-participante.dto");
+const update_participante_dto_1 = require("./dto/update-participante.dto");
 let ParticipantesController = class ParticipantesController {
     constructor(participantesService) {
         this.participantesService = participantesService;
@@ -63,12 +64,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantesController.prototype, "create", null);
 __decorate([
-    (0, common_1.Put)('/update/:id'),
+    (0, common_1.Patch)('/update/:id'),
     (0, common_1.UsePipes)(common_1.ValidationPipe),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, create_participante_dto_1.CreateParticipanteDto]),
+    __metadata("design:paramtypes", [String, update_participante_dto_1.UpdateParticipanteDto]),
     __metadata("design:returntype", Promise)
 ], ParticipantesController.prototype, "update", null);
 __decorate([
@@ -87,7 +88,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ParticipantesController.prototype, "deleteAll", null);
 ParticipantesController = __decorate([
-    (0, common_1.Controller)('/filmes'),
+    (0, common_1.Controller)('/participantes'),
     __metadata("design:paramtypes", [participantes_service_1.ParticipantesService])
 ], ParticipantesController);
 exports.ParticipantesController = ParticipantesController;

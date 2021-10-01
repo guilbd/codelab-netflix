@@ -5,15 +5,16 @@ import {
   Get,
   Param,
   Post,
-  Put,
   ValidationPipe,
   UsePipes,
+  Patch,
 } from '@nestjs/common';
 import { ParticipantesService } from './participantes.service';
 import { CreateParticipanteDto } from './dto/create-participante.dto';
 import { Participante } from '.prisma/client';
+import { UpdateParticipanteDto } from './dto/update-participante.dto';
 
-@Controller('/filmes')
+@Controller('/participantes')
 export class ParticipantesController {
   constructor(private participantesService: ParticipantesService) {}
 
@@ -37,11 +38,11 @@ export class ParticipantesController {
     return this.participantesService.createParticipante(createParticipante);
   }
 
-  @Put('/update/:id')
+  @Patch('/update/:id')
   @UsePipes(ValidationPipe)
   async update(
     @Param('id') id: string, //id como string pq vem da URL
-    @Body() participante: CreateParticipanteDto,
+    @Body() participante: UpdateParticipanteDto,
   ): Promise<Participante> {
     return this.participantesService.updateParticipante(+id, participante);
   }

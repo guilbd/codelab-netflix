@@ -7,10 +7,7 @@ export declare class GeneroService {
     genero(data: Prisma.GeneroWhereUniqueInput): Promise<Genero | null>;
     getAll(): Promise<Genero[]>;
     getByIdGenero(id: number): Promise<Genero>;
-    createGenero({ nome, filme }: {
-        nome: any;
-        filme: any;
-    }): Promise<Genero>;
+    createGenero(data: Prisma.GeneroCreateInput): Promise<Genero>;
     updateGenero(id: number, data: CreateGeneroDto): Promise<Genero>;
     deleteGenero(where: Prisma.GeneroWhereUniqueInput): Promise<Genero>;
     deleteAll(): Promise<Prisma.BatchPayload>;

@@ -32,11 +32,42 @@ let FilmesService = class FilmesService {
         });
     }
     async getAll() {
-        return this.prisma.filme.findMany();
+        return this.prisma.filme.findMany({
+            include: {
+                participantes: {
+                    select: {
+                        nome: true,
+                        imagem: true,
+                        data_nascimento: true,
+                        ator_staff: true,
+                    },
+                },
+                genero: {
+                    select: {
+                        nome: true,
+                    },
+                },
+            },
+        });
     }
     async getByIdFilme(id) {
         return this.prisma.filme.findUnique({
             where: { id },
+            include: {
+                participantes: {
+                    select: {
+                        nome: true,
+                        imagem: true,
+                        data_nascimento: true,
+                        ator_staff: true,
+                    },
+                },
+                genero: {
+                    select: {
+                        nome: true,
+                    },
+                },
+            },
         });
     }
     async createFilme(data) {

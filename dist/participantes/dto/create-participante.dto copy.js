@@ -34,4 +34,4 @@ __decorate([
     __metadata("design:type", Number)
 ], CreateParticipanteDto.prototype, "filme", void 0);
 exports.CreateParticipanteDto = CreateParticipanteDto;
-//# sourceMappingURL=create-participante.dto.js.map
+//# sourceMappingURL=create-participante.dto%20copy.js.map

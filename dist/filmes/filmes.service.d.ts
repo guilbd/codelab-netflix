@@ -12,7 +12,17 @@ export declare class FilmesService {
         orderBy?: Prisma.FilmeOrderByWithRelationInput;
     }): Promise<Filme[]>;
     getAll(): Promise<Filme[]>;
-    getByIdFilme(id: number): Promise<Filme>;
+    getByIdFilme(id: number): Promise<Filme & {
+        genero: {
+            nome: string;
+        }[];
+        participantes: {
+            nome: string;
+            imagem: string;
+            data_nascimento: string;
+            ator_staff: string;
+        }[];
+    }>;
     createFilme(data: Prisma.FilmeCreateInput): Promise<Filme>;
     updateFilme(id: number, data: Prisma.FilmeUpdateInput): Promise<Filme>;
     deleteFilme(where: Prisma.FilmeWhereUniqueInput): Promise<Filme>;

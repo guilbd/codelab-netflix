@@ -23,28 +23,7 @@ export class GeneroService {
     });
   }
 
-  async createGenero({ nome, filme }): Promise<Genero> {
-    const grouped = [];
-
-    await Promise.all(
-      filme.map(async (item) => {
-        const exist = await this.prisma.genero.findUnique({
-          where: { id: item },
-        });
-        if (exist) {
-          grouped.push({ id: item });
-        }
-      }),
-    );
-
-    const data = await this.prisma.genero.create({
-      data: {
-        nome: nome,
-        filme: {
-          connect: grouped,
-        },
-      },
-    });
+  async createGenero(data: Prisma.GeneroCreateInput): Promise<Genero> {
     return this.prisma.genero.create({ data });
   }
 
